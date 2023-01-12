@@ -14,11 +14,9 @@ public interface ReservationService {
     void AddReservation(Reservation reservation , Long userId , Long roomId);
 
     // list user
-   List<Reservation> GetAllRes();
-
+   List<Reservation> getAllReservation();
     //get user by email
     Optional<Reservation> findById(Long id);
-
 
     // get user by id
    // Optional<User> findById(long id);

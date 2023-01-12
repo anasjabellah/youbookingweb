@@ -31,7 +31,7 @@ public class Reservation {
     @ManyToOne
     private Room room;
 
-   @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Status status ;
 
 

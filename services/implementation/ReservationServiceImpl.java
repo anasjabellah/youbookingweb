@@ -3,7 +3,7 @@ package com.example.youbookingweb.services.implementation;
 import com.example.youbookingweb.entities.Reservation;
 import com.example.youbookingweb.entities.Room;
 import com.example.youbookingweb.entities.User;
-import com.example.youbookingweb.enumeration.Status ;
+import com.example.youbookingweb.enumeration.Status;
 import com.example.youbookingweb.repositories.ReservationRepository;
 import com.example.youbookingweb.repositories.RoomRepository;
 import com.example.youbookingweb.repositories.UserRepository;
@@ -16,12 +16,10 @@ import java.util.Optional;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
-
     @Autowired
     private final ReservationRepository reservationRepository;
     @Autowired
     private final UserRepository userRepository ;
-
     @Autowired
     private final RoomRepository roomRepository;
 
@@ -41,26 +39,21 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setStatus(Status.Encours);
         reservationRepository.save(reservation);
     }
-
     @Override
-    public List<Reservation> GetAllRes() {
+    public List<Reservation> getAllReservation() {
         return reservationRepository.findAll();
     }
-
     @Override
     public Optional<Reservation> findById(Long id) {
         return reservationRepository.findById(id);
     }
-
     @Override
     public Boolean DeleteReservation(long id) {
-
         reservationRepository.deleteById(id);
-
         if(reservationRepository.findById(id) == null){
-            return Boolean.TRUE ;
+            return true ;
         }else {
-            return Boolean.FALSE ;
+            return false ;
         }
 
     }
