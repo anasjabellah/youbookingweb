@@ -38,5 +38,14 @@ public class ReservationResource {
 
 
 
+    @GetMapping("/allReservation/{id}")
+    public ResponseEntity<List<Reservation>>  GetAllByUser(@PathVariable("id") long id){
+        List<Reservation> reservationList = reservationService.GetAllByUser(id);
+        return ResponseEntity.ok(reservationList);
+    }
+
+
+
+
 
 }

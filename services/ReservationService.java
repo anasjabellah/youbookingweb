@@ -15,16 +15,9 @@ public interface ReservationService {
 
     // list user
    List<Reservation> getAllReservation();
-    //get user by email
+
+   List<Reservation> GetAllByUser(Long id);
     Optional<Reservation> findById(Long id);
-
-    // get user by id
-   // Optional<User> findById(long id);
-
-    // update user
-    //void updateUser(User user);
-
-
     // delet User
    Boolean DeleteReservation(long id);
 }
