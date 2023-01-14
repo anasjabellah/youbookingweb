@@ -51,9 +51,14 @@ public class ReservationResource {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?>  deletRes(@PathVariable("id") Long id){
+    public ResponseEntity<?> deletRes(@PathVariable("id") Long id){
         reservationService.DeleteReservation(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+    public ResponseEntity<?> updet(){
+        return null ;
     }
 
 
