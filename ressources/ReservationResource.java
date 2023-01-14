@@ -45,6 +45,16 @@ public class ReservationResource {
     }
 
 
+    @PostMapping("/add")
+    public Reservation addReservation(@RequestBody Reservation reservation){
+        return reservationService.addReservation(reservation);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?>  deletRes(@PathVariable("id") Long id){
+        reservationService.DeleteReservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 

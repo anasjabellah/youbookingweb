@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDate;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -31,14 +32,12 @@ public class ReservationServiceImpl implements ReservationService {
 
 
     @Override
-    public void AddReservation(Reservation reservation, Long userId, Long roomId) {
-        User user = userRepository.findById(userId).orElse(null);
-        Room room = roomRepository.findById(roomId).orElse(null);
-        reservation.setRoom(room);
-        reservation.setClient(user);
-        reservation.setStatus(Status.Encours);
-        reservationRepository.save(reservation);
+    public Reservation addReservation(Reservation reservation) {
+            reservation.setStatus(Status.Encours);
+            return reservationRepository.save(reservation);
     }
+
+
     @Override
     public List<Reservation> getAllReservation() {
         return reservationRepository.findAll();
@@ -58,13 +57,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Boolean DeleteReservation(long id) {
-        reservationRepository.deleteById(id);
-        if(reservationRepository.findById(id) == null){
-            return true ;
-        }else {
-            return false ;
-        }
-
+        Reservation reservation = reservationRepository.findById(id).orElse(null);
+        reservationRepository.delete(reservation);
+        return true ;
     }
+
+
 
 }

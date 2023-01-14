@@ -6,13 +6,13 @@ import com.example.youbookingweb.entities.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDate;
 
 public interface ReservationService {
 
 
     // add user in data
-    void AddReservation(Reservation reservation , Long userId , Long roomId);
-
+    Reservation addReservation(Reservation reservation);
     // list user
    List<Reservation> getAllReservation();
 
