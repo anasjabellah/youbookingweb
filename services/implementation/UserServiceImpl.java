@@ -106,4 +106,5 @@ public class UserServiceImpl implements UserService {
     public List<User> findAllByBanned(boolean banned) {
         return userRepository.findAllByBanned(banned);
     }
+
 }

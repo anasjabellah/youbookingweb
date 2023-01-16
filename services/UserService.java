@@ -35,4 +35,5 @@ public interface UserService {
     Boolean isBanned(Long id);
 
     List<User> findAllByBanned(boolean banned);
+
 }

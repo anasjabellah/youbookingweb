@@ -1,4 +1,4 @@
-package com.example.bookingmt;
+package com.example.youbookingweb ;
 
 
 import org.springframework.context.annotation.Configuration;
